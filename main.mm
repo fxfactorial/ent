@@ -5,6 +5,8 @@
 #import <iostream>
 #import <string>
 
+#import "file.h"
+
 using namespace std;
 
 static const string version = "0.0.1";
@@ -39,5 +41,4 @@ int main(int argc, char **argv)
     std::cout << [[result toString] UTF8String];
     cout << "\n>> ";
   }
-
 }
