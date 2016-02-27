@@ -30,6 +30,8 @@ int main(int argc, char **argv)
     [[JSContext alloc]
 	initWithVirtualMachine:[[JSVirtualMachine alloc] init]];
 
+  repl_context[@"File"] = [File class];
+
   while (std::getline(cin, line)) {
     if (line == "exit") {
       cout << colorize("Thank you goodbye\n");
