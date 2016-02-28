@@ -31,6 +31,12 @@ int main(int argc, char **argv)
 	initWithVirtualMachine:[[JSVirtualMachine alloc] init]];
 
   repl_context[@"File"] = [File class];
+  repl_context[@"require"] = ^id(NSString *mod_wanted) {
+    if ([mod_wanted isEqualToString:@"fs"]) {
+      return [File class];
+    }
+    return nil;
+  };
 
   while (std::getline(cin, line)) {
     if (line == "exit") {
